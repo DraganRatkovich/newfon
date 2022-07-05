@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Newfon\n"
+"POT-Creation-Date: 2020-12-27 03:31+0300\n"
+"PO-Revision-Date: 2020-12-27 03:32+0300\n"
+"Last-Translator: Volodymyr Pyrih <vp88.mobile@gmail.com>\n"
+"Language-Team: Volodymyr Pyrih (vp88.mobile@gmail.com)\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.1\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SearchPath-0: ../../../../newfon\n"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:208
+msgid "&Acceleration"
+msgstr "&Прискорення"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:209
+msgid "&Samples per second (hz)"
+msgstr "&Частота дискретизації (гц)"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:210
+msgid "&Interpolation"
+msgstr "інтерполя́ція"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:214
+msgid "&Pause between phrases"
+msgstr "Пауза &між фразами"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:215
+msgid "Use built-in &dictionary synthesizer (only for Russian language)"
+msgstr ""
+"Використовувати вбудований словник синтезатора (лише для російської мови)"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:216
+msgid "Read decimal Fractions (only for Russian and ukrainian languages)"
+msgstr "Читати &десяткові дроби (тільки для російської та української мови)"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:217
+msgid "Include pseudo &english pronunciation"
+msgstr "&Увімкнути  псевдоанглійську вимову"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:323
+msgid "male 1"
+msgstr "чоловічий 1"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:323
+msgid "female 1"
+msgstr "жіночий 1"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:323
+msgid "male 2"
+msgstr "чоловічий 2"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:323
+msgid "female 2"
+msgstr "жіночий 2"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:398
+msgid "Off"
+msgstr "Вимкнений"
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:399
+msgid "2 X"
+msgstr ""
+
+#: ../../../../newfon/synthDrivers/newfon/__init__.py:400
+msgid "4 X"
+msgstr ""

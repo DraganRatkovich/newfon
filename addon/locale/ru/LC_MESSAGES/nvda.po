@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the 'newfon' package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 'newfon' '2022.04.16'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2022-07-05 12:52+0400\n"
+"PO-Revision-Date: 2022-07-05 12:59+0400\n"
+"Last-Translator: Dragan Ratkovich\n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.1\n"
+
+#: addon\synthDrivers\newfon\__init__.py:213
+msgid "&Acceleration"
+msgstr "&Ускорение"
+
+#: addon\synthDrivers\newfon\__init__.py:214
+msgid "&Samples per second (hz)"
+msgstr "&Частота дискретизации (гц)"
+
+#: addon\synthDrivers\newfon\__init__.py:215
+msgid "&Interpolation"
+msgstr "&Интерполяция"
+
+#: addon\synthDrivers\newfon\__init__.py:219
+msgid "&Pause between phrases"
+msgstr "&Пауза между фразами"
+
+#: addon\synthDrivers\newfon\__init__.py:220
+msgid "Use built-in &dictionary synthesizer (only for Russian language)"
+msgstr "Использовать встроенный словарь &синтезатора (только для русского языка)"
+
+#: addon\synthDrivers\newfon\__init__.py:221
+msgid "Read decimal Fractions (only for Russian and ukrainian languages)"
+msgstr "Чтение десятичных дробей (только для русского и украинского языков)"
+
+#: addon\synthDrivers\newfon\__init__.py:222
+msgid "Include pseudo &english pronunciation"
+msgstr "Включить псевдо&английское произношение"
+
+#: addon\synthDrivers\newfon\__init__.py:332
+msgid "male 1"
+msgstr "мужской 1"
+
+#: addon\synthDrivers\newfon\__init__.py:332
+msgid "female 1"
+msgstr "женский 1"
+
+#: addon\synthDrivers\newfon\__init__.py:332
+msgid "male 2"
+msgstr "мужской 2"
+
+#: addon\synthDrivers\newfon\__init__.py:332
+msgid "female 2"
+msgstr "женский 2"
+
+#: addon\synthDrivers\newfon\__init__.py:407
+msgid "Off"
+msgstr "Выключена"
+
+#: addon\synthDrivers\newfon\__init__.py:408
+msgid "2 X"
+msgstr "2 X"
+
+#: addon\synthDrivers\newfon\__init__.py:409
+msgid "4 X"
+msgstr "4 X"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: buildVars.py:23
+msgid "Newfon Speech synthesizer"
+msgstr "Синтезатор речи Newfon"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid "Russian and Ukrainian speech synthesizer"
+msgstr "Синтезатор речи для русского и украинского языков"
