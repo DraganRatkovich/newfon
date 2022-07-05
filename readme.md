@@ -81,4 +81,4 @@ Due to a change in the way the audio subsystem works In new alpha versions of NV
 * Thanks to the programmer Kvark, the internal architecture of the add-on was rewritten to the third Python;
 * For fans of non-standard voices, the list of sampling frequencies has been expanded.
 
-[1]:: https://github.com/DraganRatkovich/newfon/releases/download/2022.04.16/newfon-2022.04.16.nvda-addon
+[1]: https://github.com/DraganRatkovich/newfon/releases/download/2022.04.16/newfon-2022.04.16.nvda-addon
