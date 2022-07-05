@@ -20,6 +20,7 @@ Newfon is a speech synthesizer that supports Russian and Ukrainian for the first
 ### Note:
 
 Numerous versions of Newfon have been released since it was first published on the NVDA official add-ons site, but unfortunately the lead developer Sergey Shishmintsev died, which delayed the update of the synthesizer on the site.
+
 Later, Sergey's relatives made the source code completely open and allowed the developers to continue developing Newfon on only one condition: the speech synthesizer will remain free forever!
 
 ## Changelog
