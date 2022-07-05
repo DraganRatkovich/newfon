@@ -29,7 +29,7 @@ addon_info = {
 	# Author(s)
 	"addon_author": "Sergey Shishmintsev, Alexy Sadovoi, Sergey A.K.A. Electrik, Kvark and other developers",
 	# URL for the add-on documentation support
-	"addon_url": "https://electrik-spb.ru/newfon/nvda/",
+	"addon_url": "https://github.com/DraganRatkovich/newfon",
 	# Documentation file name
 	"addon_docFileName": "readme.html",
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
