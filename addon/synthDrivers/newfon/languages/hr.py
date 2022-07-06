@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# A part from newfon speech synthesizer
+# Copyright (C) 2019/2022 Sergey Shishmintsev, Alexy Sadovoi, Sergey A.K.A. Electrik, Kvark and other developers
+
 import re
 try:
 	from . import ru,sh_numbers
