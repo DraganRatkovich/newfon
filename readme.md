@@ -1,8 +1,8 @@
-﻿### Newfon
+# Newfon
 
 * Authors: Sergey Shishmintsev, Alexy Sadovoi, Sergey A.K.A. Electrik, Kvark and other developers
 * Download [stable version][1]
-* NVDA Compatibility: 2019.2 to 2022.2
+* NVDA Compatibility: 2019.2 to 2023.1
 
 ### About
 
@@ -11,42 +11,50 @@ Newfon is a speech synthesizer that supports Russian and Ukrainian for the first
 ### General features:
 
 * Ability to change languages;
-* Change the sample rate;
+* Changing the sampling rate;
 * Sound interpolation to simulate the sound of old DOS screen readers and book readers;
-* In order for the synthesizer to read the text as it is written, it is possible to disable the built-in accent dictionary. Option works only for Russian language
-* The synthesizer, in addition to the main rate from 0 to 100%, supports additional speech acceleration, which reduces the time of reading the text
-* To get a smoother reading at high speeds, it is possible to adjust the pauses between phrases
+* In order for the synthesizer to read the text as it is written, it is possible to disable the built-in accent dictionary. Option works only for Russian language;
+* The synthesizer, in addition to the main rate from 0 to 100%, supports additional speech acceleration, which reduces the time of reading the text;
+* To get a smoother reading at high speeds, it is possible to adjust the pauses between phrases.
 
 ### Note:
 
 Numerous versions of Newfon have been released since it was first published on the NVDA official add-ons site, but unfortunately the lead developer Sergey Shishmintsev died, which delayed the update of the synthesizer on the site.
 
-In 2017, the current developers of the Newfon speech synthesizer had the opportunity to get the source codes for Sergey's developments. His relatives, thanks to whom this happened, set them only one condition: if the development of his projects continues, they must become free. The developers, in turn, decided that history should not forget Sergey Shishmintsev, as he is a unique programmer with an enormous amount of perseverance, hard work and knowledge.
+In 2017, the current developers of the Newfon speech synthesizer had the opportunity to get the source codes for Sergey's developments. His relatives, thanks to whom this happened, set them only one condition: if the development of his projects continues, they must become free.
+
+The developers, in turn, decided that history should not forget Sergey Shishmintsev, as he was a unique programmer with an enormous amount of perseverance, hard work and knowledge.
 
 ## Changelog
 
-### New in 2022.04.16
+### Version 2023.1
 
-Compatible with NVDA 2022 (Backward compatibility with NVDA 2019.2 is still supported.).
+* Added compatibility with NVDA 2023.1 (backwards compatibility with NVDA 2019 is still supported);
+* Added Newfon license agreement in English;
+* Added documentation in Russian.
 
-### New in 2021.06.06
+### Version 2022.04.16
+
+Compatible with NVDA 2022 (backward compatibility with NVDA 2019.2 is still supported.).
+
+### Version 2021.06.06
 
 For compatibility with later versions of NVDA, the lastTestedNVDAVersion value has been changed.
 
-### New in 2021.03.19
+### Version 2021.03.19
 
 For compatibility with subsequent versions of NVDA, the internal mechanisms for the interaction of the synthesizer with NVDA drivers have been changed.
 
-### New in 2021.01.16
+### Version 2021.01.16
 #### Added:
 
 speech.BreakCommand - This feature is required by some add-ons to pause speech for a while.
 
 #### Fixed:
 
-• In Ukrainian, some capital letters were not read correctly.
+In Ukrainian, some capital letters were not read correctly.
 
-### New in 2020.12.28
+### Version 2020.12.28
 
 In this version, a significant processing of scripts, restructuring of the add-on, new languages (test opportunity) and much more was made.
 
@@ -66,12 +74,12 @@ In this version, a significant processing of scripts, restructuring of the add-o
 
 Sound out of sync bug that occasionally appeared on the latest versions of NVDA.
 
-### New in 2020.09.12
+### Version 2020.09.12
 #### Changed:
 
 Due to a change in the way the audio subsystem works In new alpha versions of NVDA, the sample rate was not switched properly.
 
-### New in 2020.03.12
+### Version 2020.03.12
 #### Added:
 
 * At the request of users, an optional ability has been added for English pronunciation, instead of the sound е, pronounce the sound э - like in the old add-ons;
@@ -82,4 +90,4 @@ Due to a change in the way the audio subsystem works In new alpha versions of NV
 * Thanks to the programmer Kvark, the internal architecture of the add-on was rewritten to the third Python;
 * For fans of non-standard voices, the list of sampling frequencies has been expanded.
 
-[1]: https://github.com/DraganRatkovich/newfon/releases/download/2022.04.16/newfon-2022.04.16.nvda-addon
+[1]: https://github.com/DraganRatkovich/newfon/releases/download/2023.1/newfon-2023.1.nvda-addon
