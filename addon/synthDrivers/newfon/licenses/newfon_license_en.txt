@@ -1,4 +1,5 @@
-   Newfon license agreement.
-1. Allowed free use in any free applications, book readers, screen readers.
-2. Without the knowledge of the author, commercial use in screen readers, book readers is prohibited.
-3. For all questions, you can contact by e-mail: electrik-spb@mail.ru
+﻿The Newfon license has been completely changed. Now Newfon can be used everywhere: in commercial applications, screen readers, etc.
+
+the scripts are distributed under the MIT license, and the binary file is distributed compiled, without sources, due to the fact that the code is written in the old assembler dialect in conjunction with delphi 6, in which nothing will change, due to the fact that the code is outdated, it is difficult to maintain, and it only works on 32 bits.
+Therefore, no one needs this old support, in addition, there is an alternative implementation of the phonemaphone, from Igor Poretsky - RU_TTS, distributed under the MIT license.
+Now all new features will be implemented only in RU_TTS, and newfon will remain the old implementation, but everyone will still be able to change python modules and add new functions inside Python.
