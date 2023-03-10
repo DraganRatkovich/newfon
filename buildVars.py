@@ -25,7 +25,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("""Newfon is a multilingual speech synthesizer that supports Russian, Ukrainian, Croatian, Polish and Serbian."""),
 	# version
-	"addon_version": "2023.1",
+	"addon_version": "2023.2",
 	# Author(s)
 	"addon_author": "Sergey Shishmintsev, Alexy Sadovoi, Sergey A.K.A. Electrik, Kvark and other developers",
 	# URL for the add-on documentation support
@@ -43,9 +43,9 @@ addon_info = {
 	# Do not change unless you know what you are doing!
 	"addon_updateChannel": None,
 	# Add-on license such as GPL 2
-	"addon_license": "GNU GENERAL PUBLIC LICENSE v3",
+	"addon_license": "MIT License",
 	# URL for the license document the ad-on is licensed under
-	"addon_licenseURL": "https://www.gnu.org/licenses/gpl-3.0.html",
+	"addon_licenseURL": "https://www.mit.edu/~amini/LICENSE.md",
 }
 
 # Define the python files that are the sources of your add-on.
