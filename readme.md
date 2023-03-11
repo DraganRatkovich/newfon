@@ -27,6 +27,10 @@ The developers, in turn, decided that history should not forget Sergey Shishmint
 
 ## Changelog
 
+### Version 2023.2
+
+Newfon license changed from GPL to MIT license.
+
 ### Version 2023.1
 
 * Added compatibility with NVDA 2023.1 (backwards compatibility with NVDA 2019 is still supported);

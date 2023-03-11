@@ -25,11 +25,11 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("""Newfon is a multilingual speech synthesizer that supports Russian, Ukrainian, Croatian, Polish and Serbian."""),
 	# version
-	"addon_version": "2023.2",
+	"addon_version": "2023.2.0",
 	# Author(s)
 	"addon_author": "Sergey Shishmintsev, Alexy Sadovoi, Sergey A.K.A. Electrik, Kvark and other developers",
 	# URL for the add-on documentation support
-	"addon_url": "https://github.com/DraganRatkovich/newfon",
+	"addon_url": "https://github.com/DraganRatkovich/newfon/blob/master/readme.md#readme",
 	# URL for the add-on repository where the source code can be found
 	"addon_sourceURL": "https://github.com/DraganRatkovich/newfon",
 	# Documentation file name
