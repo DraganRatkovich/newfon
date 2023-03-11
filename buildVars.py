@@ -29,7 +29,7 @@ addon_info = {
 	# Author(s)
 	"addon_author": "Sergey Shishmintsev, Alexy Sadovoi, Sergey A.K.A. Electrik, Kvark and other developers",
 	# URL for the add-on documentation support
-	"addon_url": "https://github.com/DraganRatkovich/newfon/blob/master/readme.md#readme",
+	"addon_url": "https://github.com/DraganRatkovich/newfon",
 	# URL for the add-on repository where the source code can be found
 	"addon_sourceURL": "https://github.com/DraganRatkovich/newfon",
 	# Documentation file name
