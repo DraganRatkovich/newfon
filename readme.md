@@ -27,6 +27,10 @@ The developers, in turn, decided that history should not forget Sergey Shishmint
 
 ## Changelog
 
+### Version 2023.3
+
+The GPL license is back in place of MIT. Now MIT is used for open source scripts and GPL is used for Newfon speech driver.
+
 ### Version 2023.2
 
 Newfon license changed from GPL to MIT license.

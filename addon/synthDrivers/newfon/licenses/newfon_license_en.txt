@@ -1,5 +1,5 @@
-﻿The Newfon license has been completely changed. Now Newfon can be used everywhere: in commercial applications, screen readers, etc.
+﻿The Newfon language scripts are distributed under the MIT license. The speech driver as it was is distributed under the GPL v2 license.
 
-the scripts are distributed under the MIT license, and the binary file is distributed compiled, without sources, due to the fact that the code is written in the old assembler dialect in conjunction with delphi 6, in which nothing will change, due to the fact that the code is outdated, it is difficult to maintain, and it only works on 32 bits.
+The speech driver code is written in an old assembler dialect in conjunction with delphi 6, in which nothing will change, due to the fact that the code is outdated, it is difficult to maintain, and it only works on 32 bits.
 Therefore, no one needs this old support, in addition, there is an alternative implementation of the phonemaphone, from Igor Poretsky - RU_TTS, distributed under the MIT license.
-Now all new features will be implemented only in RU_TTS, and newfon will remain the old implementation, but everyone will still be able to change python modules and add new functions inside Python.
+Now all new features will be implemented only in RU_TTS, and newfon will remain the old implementation, but everyone will still be able to modify Python modules and add new features inside Python, in combination with the GPL license.
