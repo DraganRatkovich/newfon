@@ -440,8 +440,8 @@ def dajNapisZLiczbamiWPostaciSlownej(napis):
 def numbersToWords(numbers, variant=""):
 	text = dajNapisZLiczbamiWPostaciSlownej(numbers)
 	if variant == "hr":
-		text = text.replace(u"hiljad", u"tisuć")
-		text = text.replace(u"lion", u"lijun")
+		text = text.replace("hiljad", "tisuć")
+		text = text.replace("lion", "lijun")
 	elif variant == "sr":
 		text = re_jat.sub("ve", text)
 	elif variant == "sr_ije":

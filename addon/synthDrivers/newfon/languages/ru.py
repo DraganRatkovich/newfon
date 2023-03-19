@@ -11,64 +11,64 @@ except ImportError: # for NVDA below 2019.3
 options = {}
 
 letters = {
-	u"б": u"бэ",
-	u"в": u"вэ",
-	u"г": u"гэ",
-	u"д": u"дэ",
-	u"ж": u"же",
-	u"з": u"зэ",
-	u"й": u"и краткое",
-	u"к": u"ка",
-	u"л": u"эль",
-	u"м": u"эм",
-	u"н": u"эн",
-	u"п": u"пэ",
-	u"р": u"эр",
-	u"с": u"эс",
-	u"т": u"тэ",
-	u"ф": u"эф",
-	u"х": u"ха",
-	u"ц": u"це",
-	u"ч": u"че",
-	u"ш": u"ша",
-	u"щ": u"ща",
-	u"ъ": u"твёрдый знак",
-	u"ь": u"мягкий знак",
-	u"і": u"и десятеричное",
-	u"ѣ": u"ять",
-	u"ѳ": u"фита",
-	u"ѵ": u"ижица",
-	u"ў": u"у краткое",
-	u"ґ": u"гэ взрывное",
+	"б": "бэ",
+	"в": "вэ",
+	"г": "гэ",
+	"д": "дэ",
+	"ж": "же",
+	"з": "зэ",
+	"й": "и краткое",
+	"к": "ка",
+	"л": "эль",
+	"м": "эм",
+	"н": "эн",
+	"п": "пэ",
+	"р": "эр",
+	"с": "эс",
+	"т": "тэ",
+	"ф": "эф",
+	"х": "ха",
+	"ц": "це",
+	"ч": "че",
+	"ш": "ша",
+	"щ": "ща",
+	"ъ": "твёрдый знак",
+	"ь": "мягкий знак",
+	"і": "и десятеричное",
+	"ѣ": "ять",
+	"ѳ": "фита",
+	"ѵ": "ижица",
+	"ў": "у краткое",
+	"ґ": "гэ взрывное",
 }
 
 pronunciation = {
-u"ґ": u"г",
-u"і": u"и",
-u"ѣ": u"е",
-u"ѳ": u"ф",
-u"ѵ": u"и",
-u"ў": u"у",
+"ґ": "г",
+"і": "и",
+"ѣ": "е",
+"ѳ": "ф",
+"ѵ": "и",
+"ў": "у",
 }
 
 
 rules = {
-re.compile(u"ц([яюьё])", re.U|re.I): u"тс\\1",
-#re.compile(u"\\b([жз])\\b", re.U|re.I): u"\\1ъ",
+re.compile("ц([яюьё])", re.U|re.I): "тс\\1",
+#re.compile("\\b([жз])\\b", re.U|re.I): "\\1ъ",
 }
 
 
 re_words = re.compile(r"\b(\w+)\b",re.U)
 
 abbreviationsLength = 4
-re_abbreviations = re.compile(u"\\b([\\d,bcdfghjklmnpqrstvwxzбвгджзклмнпрстфхцчшщѳ]{2,})\\b",re.U)
-re_capAbbreviations = re.compile(u"([bcdfghjklmnpqrstvwxzбвгджзклмнпрстфхцчшщѳ]{3,})",re.U|re.I)
+re_abbreviations = re.compile("\\b([\\d,bcdfghjklmnpqrstvwxzбвгджзклмнпрстфхцчшщѳ]{2,})\\b",re.U)
+re_capAbbreviations = re.compile("([bcdfghjklmnpqrstvwxzбвгджзклмнпрстфхцчшщѳ]{3,})",re.U|re.I)
 re_decimalFractions = re.compile(r"\d+(\.)\d")
 re_afterNumber = re.compile(r"(\d+)([^\.\:\-\/\!\?\d])")
 re_omittedCharacters = re.compile(r"[\(\)\*_\"]+")
-zeros=[u"ноль ",u"ноля ",u"нолей "]
+zeros=["ноль ","ноля ","нолей "]
 re_zeros = re.compile(r"\b\a?\.?(0+)")
-re_stress = re.compile(u"([аеёиоуыэюяіѣѵ])́", re.U|re.I)
+re_stress = re.compile("([аеёиоуыэюяіѣѵ])́", re.U|re.I)
 
 AllLetters = {}
 AllLetters.update(en.letters)
@@ -115,6 +115,6 @@ def process(text,language):
 	text = preprocessText(text)
 	text = re_words.sub(expandAbbreviation,text) #this also lowers the text
 	text = en.preprocessText(text)
-	text = re_stress.sub(u"\\1\\+", text)
+	text = re_stress.sub("\\1\\+", text)
 	text = re_afterNumber.sub(r"\1-\2", text)
 	return text

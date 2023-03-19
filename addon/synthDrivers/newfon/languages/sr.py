@@ -11,42 +11,42 @@ except ImportError: # for NVDA below 2019.3
 options = {}
 
 letters = {
-u"е": u"э",
-u"л": u"эл",
-u"ч": u"тше",
-u"ђ": u"дьйе",
-u"ј": u"йот",
-u"љ": u"эль",
-u"њ": u"энь",
-u"ћ": u"че",
-u"џ": u"дже",
+"е": "э",
+"л": "эл",
+"ч": "тше",
+"ђ": "дьйе",
+"ј": "йот",
+"љ": "эль",
+"њ": "энь",
+"ћ": "че",
+"џ": "дже",
 }
 
 pronunciation = {
-u"е": u"э",
-u"ч": u"тш",
-u"ђ": u"дьй",
-u"ј": u"й",
-u"љ": u"ль",
-u"њ": u"нь",
-u"ћ": u"ч",
-u"џ": u"дж",
+"е": "э",
+"ч": "тш",
+"ђ": "дьй",
+"ј": "й",
+"љ": "ль",
+"њ": "нь",
+"ћ": "ч",
+"џ": "дж",
 }
 
 rules = {
-re.compile(u"([в])([пткцчћфсшх])", re.U|re.I): u"\\1ъ\\2",
+re.compile("([в])([пткцчћфсшх])", re.U|re.I): "\\1ъ\\2",
 }
 
 re_words = re.compile(r"\b(\w+)\b", re.U)
-re_letters = re.compile(u"\\b([елчђјљњћџЕЛЧЂЈЉЊЋЏ])\\b", re.U)
+re_letters = re.compile("\\b([елчђјљњћџЕЛЧЂЈЉЊЋЏ])\\b", re.U)
 abbreviationsLength = 5
-re_abbreviations = re.compile(u"\\b([bcdfghjklmnpqrstvwxzčćđšžłżśźńбвгджзйклмнпрстфхцчшщѳђјљњћџ]{2,})\\b", re.U)
-re_capAbbreviations = re.compile(u"([bcdfghjklmnpqrstvwxzčćđšžłżśźńбвгджзйклмнпрстфхцчшщѳђјљњћџ]{3,})",re.U|re.I)
+re_abbreviations = re.compile("\\b([bcdfghjklmnpqrstvwxzčćđšžłżśźńбвгджзйклмнпрстфхцчшщѳђјљњћџ]{2,})\\b", re.U)
+re_capAbbreviations = re.compile("([bcdfghjklmnpqrstvwxzčćđšžłżśźńбвгджзйклмнпрстфхцчшщѳђјљњћџ]{3,})",re.U|re.I)
 re_decimalFractions = re.compile(r"\d+(\.)\d+")
 re_numbers = re.compile(r"(\d+)", re.U)
 re_afterNumber = re.compile(r"(\d+)([^\.\:\-\/\!\?\d])", re.U)
-re_omittedCharacters = re.compile(u"['\\(\\)\\*„_\\\"‘’«»‚]+", re.U)
-re_stress = re.compile(u"([аеёиоуыэюяіѣѵ])́", re.U|re.I)
+re_omittedCharacters = re.compile("['\\(\\)\\*„_\\\"‘’«»‚]+", re.U)
+re_stress = re.compile("([аеёиоуыэюяіѣѵ])́", re.U|re.I)
 
 allLetters = {}
 allLetters.update(ru.letters)
@@ -74,7 +74,7 @@ def preprocessText(text):
 	text = re_letters.sub(subLetters, text)
 	for s in pronunciation:
 		text = text.replace(s, pronunciation[s])
-	text = re.sub(u"([лн])ьо", u"\\1ё", text) # Глуповатый такой хак.
+	text = re.sub("([лн])ьо", "\\1ё", text) # Глуповатый такой хак.
 	return text
 
 def preprocessNumbers(text, language):
@@ -92,7 +92,7 @@ def process(text,language):
 		else: return char
 	text = re_omittedCharacters.sub(" ", text)
 	text = preprocessNumbers(text, language)
-	text = text.replace(u"р", u"r") # Криво, но работает.
+	text = text.replace("р", "r") # Криво, но работает.
 	text = re_words.sub(expandAbbreviation,text) #this also lowers the text
 	text = preprocessText(text)
 	text = hr.preprocessText(text)

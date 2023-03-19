@@ -5,20 +5,10 @@
 import tones
 import sys
 import os.path
-try:
-	import Queue
-except ImportError:
-	import queue as Queue
+import queue
 from collections import OrderedDict
 from ctypes import *
 import threading
-
-
-try:
-	string_types = (unicode, str)
-except NameError: # for python 3
-	string_types = (str,)
-
 from synthDriverHandler import SynthDriver, VoiceInfo, LanguageInfo, getSynth
 try:
 	from autoSettingsUtils.driverSetting  import DriverSetting, BooleanDriverSetting, NumericDriverSetting
@@ -37,21 +27,11 @@ import winKernel
 from logHandler import log
 addonHandler.initTranslation()
 
-try:
-	from synthDriverHandler import synthIndexReached, synthDoneSpeaking
-except ImportError: # for NVDA below 2019.3
-	import extensionPoints
-	synthIndexReached = synthDoneSpeaking = extensionPoints.Action()
+from synthDriverHandler import synthIndexReached, synthDoneSpeaking
 
-try:
-	from .languages import en,hr,ru,pl,sr,uk
-except ImportError: # for NVDA below 2019.3
-	from languages import en,hr,ru,pl,sr,uk
+from .languages import en,hr,ru,pl,sr,uk
 
-try:
-	file_path = os.path.dirname(__file__.decode("mbcs"))
-except AttributeError: # for python 3
-	file_path = os.path.dirname(__file__)
+file_path = os.path.dirname(__file__)
 
 
 newfon_audio_callback = WINFUNCTYPE(c_int, POINTER(c_char), POINTER(c_char), c_int)
@@ -263,7 +243,7 @@ class SynthDriver(SynthDriver):
 		self.__doneSpeaking_callback = DoneSpeakingCallback(self,self.__player)
 		self.__newfon_doneSpeaking_callback = newfon_doneSpeaking_callback(self.__doneSpeaking_callback)
 		self.__newfon_lib.set_callbacks(self.__newfon_audio_callback, self.__newfon_index_callback, self.__newfon_doneSpeaking_callback)
-		self.__newfon_queue = Queue.Queue()
+		self.__newfon_queue = queue.Queue()
 		self.__newfon_thread=NewfonThread(self.__newfon_lib, self.__player, self.__is_silence, self.__newfon_queue, self)
 		self.__newfon_thread.start()
 		self.__newfon_lib.set_dictionary(True)
@@ -292,7 +272,7 @@ class SynthDriver(SynthDriver):
 		textList = []
 		newfon = NewfonObject(self.__newfon_lib, self.__player, self._pitch, self._inflection, self.voice)
 		for item in speechSequence:
-			if isinstance(item, string_types):
+			if isinstance(item, str):
 				textList.append(lngModule.process(item, self._language))
 			elif isinstance(item, IndexCommand):
 				self.__newfon_lib.set_mark(item.index)
@@ -319,7 +299,7 @@ class SynthDriver(SynthDriver):
 		try:
 			while True:
 				self.__newfon_queue.get_nowait()
-		except Queue.Empty:
+		except queue.Empty:
 			self.__is_silence.set()
 			self.__newfon_queue.put(())
 			self.__player.stop()
