@@ -11,72 +11,72 @@ except ImportError: # for NVDA below 2019.3
 options = {}
 
 letters = {
-'a': u"а",
-'b': u"бэ",
-'c': u"цэ",
-'d': u"дэ",
-'e': u"э",
-'f': u"эф",
-'g': u"гэ",
-'h': u"ха",
-'i': u"и",
-'j': u"йот",
-'k': u"ка",
-'l': u"эл",
-'m': u"эм",
-'n': u"эн",
-'o': u"о",
-'p': u"пэ",
-'q': u"квэ",
-'r': u"эр",
-'s': u"эс",
-'t': u"тэ",
-'u': u"у",
-'v': u"вэ",
-'w': u"дупло вэ",
-'x': u"икс",
-'y': u"ипсилон",
-'z': u"зэ",
-u"č": u"тшэ",
-u"ć": u"че",
-u"đ": u"дье",
-u"š": u"шэ",
-u"ž": u"жэ",
+'a': "а",
+'b': "бэ",
+'c': "цэ",
+'d': "дэ",
+'e': "э",
+'f': "эф",
+'g': "гэ",
+'h': "ха",
+'i': "и",
+'j': "йот",
+'k': "ка",
+'l': "эл",
+'m': "эм",
+'n': "эн",
+'o': "о",
+'p': "пэ",
+'q': "квэ",
+'r': "эр",
+'s': "эс",
+'t': "тэ",
+'u': "у",
+'v': "вэ",
+'w': "дупло вэ",
+'x': "икс",
+'y': "ипсилон",
+'z': "зэ",
+"č": "тшэ",
+"ć": "че",
+"đ": "дье",
+"š": "шэ",
+"ž": "жэ",
 }
 
 pronunciation= {
-'e': u"э",
-'qu': u"кв",
-'x': u"кс",
-'y': u"и",
-u"č": u"тш",
-u"ć": u"ч",
-u"đ": u"дьй",
-'lj': u"ль",
-'nj': u"нь",
-u"š": u"ш",
-u"ž": u"ж",
+'e': "э",
+'qu': "кв",
+'x': "кс",
+'y': "и",
+"č": "тш",
+"ć": "ч",
+"đ": "дьй",
+'lj': "ль",
+'nj': "нь",
+"š": "ш",
+"ž": "ж",
 }
 
 rules = {
-re.compile(u"([vw])([ptkcčćfsšhqx])", re.U|re.I): u"\\1ъ\\2",
+re.compile("([vw])([ptkcčćfsšhqx])", re.U|re.I): "\\1ъ\\2",
 }
 
 re_words = re.compile(r"\b(\w+)\b", re.U)
-re_letters = re.compile(u"\\b([bcdfghjlmnpqrtvwxyzBCDFGHJLMNPQRTVWXYZčćđšžČĆĐŠŽ])\\b", re.U)
+re_letters = re.compile("\\b([bcdfghjlmnpqrtvwxyzBCDFGHJLMNPQRTVWXYZčćđšžČĆĐŠŽ])\\b", re.U)
 abbreviationsLength = 5
-re_abbreviations = re.compile(u"\\b([bcdfghjklmnpqrstvwxzčćđšžłżśźńбвгджзйклмнпрстфхцчшщѳђјљњћџ]{2,})\\b", re.U)
-re_capAbbreviations = re.compile(u"([bcdfghjklmnpqrstvwxzčćđšžłżśźńбвгджзйклмнпрстфхцчшщѳђјљњћџ]{3,})",re.U|re.I)
+re_abbreviations = re.compile("\\b([bcdfghjklmnpqrstvwxzčćđšžłżśźńбвгджзйклмнпрстфхцчшщѳђјљњћџ]{2,})\\b", re.U)
+re_capAbbreviations = re.compile("([bcdfghjklmnpqrstvwxzčćđšžłżśźńбвгджзйклмнпрстфхцчшщѳђјљњћџ]{3,})",re.U|re.I)
 re_decimalFractions = re.compile(r"\d+(\.)\d+")
 re_numbers = re.compile(r"(\d+)", re.U)
 re_afterNumber = re.compile(r"(\d+)([^\.\:\-\/\!\?\d])", re.U)
-re_omittedCharacters = re.compile(u"['\\(\\)\\*„_\\\"‘’«»‚]+", re.U)
+re_omittedCharacters = re.compile("['\\(\\)\\*„_\\\"‘’«»‚]+", re.U)
 re_zeros = re.compile(r"\b\a?\.?(0+)")
 zeros = {
 'ru': u'ноль ',
 'uk': u'нуль ',
 }
-re_stress = re.compile(u"([аеёиоуыэюяіѣѵ])́", re.U|re.I)
+re_stress = re.compile("([аеёиоуыэюяіѣѵ])́", re.U|re.I)
 
 AllLetters = {}
 AllLetters.update(letters)
@@ -122,6 +122,6 @@ def process(text,language):
 	text = re_words.sub(expandAbbreviation,text) #this also lowers the text
 	text = preprocessText(text)
 	text = ru.preprocessText(text)
-	text = re_stress.sub(u"\\1\\+", text)
+	text = re_stress.sub("\\1\\+", text)
 	text = re_afterNumber.sub(r"\1-\2", text)
 	return text

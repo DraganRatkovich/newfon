@@ -9,102 +9,102 @@ except ImportError: # for NVDA below 2019.3
 	import ru,pl_numbers
 
 letters = {
-'a': u"а",
-'b' : u"бэ",
-'c': u"цэ",
-'d': u"дэ",
-'e': u"э",
-'f': u"эф",
-'g': u"ге",
-'h': u"ха",
-'i': u"и",
-'j': u"йот",
-'k': u"ка",
-'l': u"эль",
-'m': u"эм",
-'n': u"эн",
-'o': u"о",
-'p': u"пэ",
-'q': u"ку",
-'r': u"эр",
-'s': u"эс",
-'t': u"тэ",
-'u': u"у",
-'v': u"фау",
-'w': u"ву",
-'x': u"икс",
-'y': u"игрэк",
-'z': u"зэт",
-u"ą": u"а носовэ",
-u"ę": u"э носовэ",
-u"ć": u"тьсе",
-u"ł": u"эл",
-u"ż": u"жет",
-u"ź": u"зет",
-u"ó": u"у крэска",
-u"ń": u"энь",
-u"ś": u"эсь",
+'a': "а",
+'b' : "бэ",
+'c': "цэ",
+'d': "дэ",
+'e': "э",
+'f': "эф",
+'g': "ге",
+'h': "ха",
+'i': "и",
+'j': "йот",
+'k': "ка",
+'l': "эль",
+'m': "эм",
+'n': "эн",
+'o': "о",
+'p': "пэ",
+'q': "ку",
+'r': "эр",
+'s': "эс",
+'t': "тэ",
+'u': "у",
+'v': "фау",
+'w': "ву",
+'x': "икс",
+'y': "игрэк",
+'z': "зэт",
+"ą": "а носовэ",
+"ę": "э носовэ",
+"ć": "тьсе",
+"ł": "эл",
+"ż": "жет",
+"ź": "зет",
+"ó": "у крэска",
+"ń": "энь",
+"ś": "эсь",
 }
 
 exceptions = {
-re.compile(u"(supe|hipe|cybe)r(z)", re.U|re.I): u"\\1р\\2",
-re.compile(u"(ma)r(zn)", re.U|re.I): u"\\1р\\2",
-re.compile(u"(ta)r(zan)", re.U|re.I): u"\\1р\\2",
-re.compile(u"(e)r(zac)", re.U|re.I): u"\\1р\\2",
-re.compile(u"(\\bspe)c(z)", re.U|re.I): u"\\1ц\\2",
+re.compile("(supe|hipe|cybe)r(z)", re.U|re.I): "\\1р\\2",
+re.compile("(ma)r(zn)", re.U|re.I): "\\1р\\2",
+re.compile("(ta)r(zan)", re.U|re.I): "\\1р\\2",
+re.compile("(e)r(zac)", re.U|re.I): "\\1р\\2",
+re.compile("(\\bspe)c(z)", re.U|re.I): "\\1ц\\2",
 }
 
 pronunciation= {
-'e': u"э",
-u'ń': u"нь",
-'x': u"кс",
-'y': u"ы",
-u"ś": u"сь",
-u"ć": u"тьсь",
-u"ł": u"л",
-u"l": u"ль",
-u"dź": u"дьзь",
-u"ż": u"ж",
-u"ź": u"зь",
-u"ó": u"у",
-"ch": u"х",
-"cz": u"тш",
-"rz": u"ж",
-"sz": u"ш",
-"qu": u"кв",
-"v": u"ф",
+'e': "э",
+'ń': "нь",
+'x': "кс",
+'y': "ы",
+"ś": "сь",
+"ć": "тьсь",
+"ł": "л",
+"l": "ль",
+"dź": "дьзь",
+"ż": "ж",
+"ź": "зь",
+"ó": "у",
+"ch": "х",
+"cz": "тш",
+"rz": "ж",
+"sz": "ш",
+"qu": "кв",
+"v": "ф",
 }
 
 rules = {
-re.compile(u"r(zi)", re.U|re.I): u"р\\1",
-re.compile(u"([td])([rs]z)", re.U|re.I): u"\\1\\1\\2",
-re.compile(u"([ptkfschść]|[cs]z)rz", re.U|re.I): u"\\1ш",
-re.compile(u"l(i)", re.U|re.I): u"л\\1",
-re.compile(u"([pbfvwszcmn])i([aeouąęó])", re.U|re.I): u"\\1ь\\2",
-re.compile(u"([kgh])i(e)", re.U|re.I): u"\\1ь\\2",
-re.compile(u"c([iь])", re.U|re.I): u"тьс\\1",
-re.compile(u"dz([iь])", re.U|re.I): u"дьз\\1",
-re.compile(u"ą([pbfvwm]|\\b)", re.U|re.I): u"om\\1",
-re.compile(u"ę([pbfvwm]|\\b)", re.U|re.I): u"em\\1",
-re.compile(u"ą", re.U|re.I): u"on",
-re.compile(u"ę", re.U|re.I): u"en",
+re.compile("r(zi)", re.U|re.I): "р\\1",
+re.compile("([td])([rs]z)", re.U|re.I): "\\1\\1\\2",
+re.compile("([ptkfschść]|[cs]z)rz", re.U|re.I): "\\1ш",
+re.compile("l(i)", re.U|re.I): "л\\1",
+re.compile("([pbfvwszcmn])i([aeouąęó])", re.U|re.I): "\\1ь\\2",
+re.compile("([kgh])i(e)", re.U|re.I): "\\1ь\\2",
+re.compile("c([iь])", re.U|re.I): "тьс\\1",
+re.compile("dz([iь])", re.U|re.I): "дьз\\1",
+re.compile("ą([pbfvwm]|\\b)", re.U|re.I): "om\\1",
+re.compile("ę([pbfvwm]|\\b)", re.U|re.I): "em\\1",
+re.compile("ą", re.U|re.I): "on",
+re.compile("ę", re.U|re.I): "en",
 }
 
 re_words = re.compile(r"\b(\w+)\b", re.U)
-re_letters = re.compile(u"\\b([bcdfghjlmnpqrstvxyBCDFGHJLMNPQRSTVXYśżźćłńŚŻŹĆŁŃ])\\b", re.U)
+re_letters = re.compile("\\b([bcdfghjlmnpqrstvxyBCDFGHJLMNPQRSTVXYśżźćłńŚŻŹĆŁŃ])\\b", re.U)
 abbreviationsLength = 5
-re_abbreviations = re.compile(u"\\b([bcdfghjklmnpqrstvwxzčćđšžłżśźńбвгджзйклмнпрстфхцчшщѳђјљњћџ]{2,})\\b", re.U)
-re_capAbbreviations = re.compile(u"([bcdfghjklmnpqrstvwxzčćđšžłżśźńбвгджзйклмнпрстфхцчшщѳђјљњћџ]{3,})",re.U|re.I)
+re_abbreviations = re.compile("\\b([bcdfghjklmnpqrstvwxzčćđšžłżśźńбвгджзйклмнпрстфхцчшщѳђјљњћџ]{2,})\\b", re.U)
+re_capAbbreviations = re.compile("([bcdfghjklmnpqrstvwxzčćđšžłżśźńбвгджзйклмнпрстфхцчшщѳђјљњћџ]{3,})",re.U|re.I)
 re_decimalFractions = re.compile(r"\d+(\.)\d+")
 re_numbers = re.compile(r"(\d+)", re.U)
 re_afterNumber = re.compile(r"(\d+)([^\.\:\-\/\!\?\d])", re.U)
-re_omittedCharacters = re.compile(u"['\\(\\)\\*„_\\\"‘’«»‚]+", re.U)
+re_omittedCharacters = re.compile("['\\(\\)\\*„_\\\"‘’«»‚]+", re.U)
 re_zeros = re.compile(r"\b\a?\.?(0+)")
 zeros = {
 'ru': u'ноль ',
 'uk': u'нуль ',
 }
-re_stress = re.compile(u"([аеёиоуыэюяіѣѵ])́", re.U|re.I)
+re_stress = re.compile("([аеёиоуыэюяіѣѵ])́", re.U|re.I)
 
 AllLetters = {}
 AllLetters.update(letters)
@@ -133,7 +133,7 @@ def preprocessText(text):
 	text = re_letters.sub(subLetters, text)
 	for s in pronunciation:
 		text = text.replace(s, pronunciation[s])
-	text = text.replace(u"ьi", u"и") # Еще один костыль.
+	text = text.replace("ьi", "и") # Еще один костыль.
 	return text
 
 def preprocessNumbers(text, language):
@@ -153,6 +153,6 @@ def process(text,language):
 	text = re_words.sub(expandAbbreviation,text) #this also lowers the text
 	text = preprocessText(text)
 	text = ru.preprocessText(text)
-	text = re_stress.sub(u"\\1\\+", text)
+	text = re_stress.sub("\\1\\+", text)
 	text = re_afterNumber.sub(r"\1-\2", text)
 	return text

@@ -11,71 +11,71 @@ except ImportError: # for NVDA below 2019.3
 options = {}
 
 rules = {
-	re.compile(u"\\b(й)\\s",re.U|re.I): U"й",
-	re.compile(u"\\b(з)\\s",re.U|re.I): U"з",
-	re.compile(u"\\s(ж)\\b",re.U|re.I): U"ж",
-	re.compile(u"\\s(б)\\b",re.U|re.I): U"б",
-	re.compile(u"'([яюєї])",re.I|re.U): u"ьй\\1",
-	re.compile(u"ц([ьіяюєї])",re.U|re.I): U"тс\\1",
+	re.compile("\\b(й)\\s",re.U|re.I): "й",
+	re.compile("\\b(з)\\s",re.U|re.I): "з",
+	re.compile("\\s(ж)\\b",re.U|re.I): "ж",
+	re.compile("\\s(б)\\b",re.U|re.I): "б",
+	re.compile("'([яюєї])",re.I|re.U): "ьй\\1",
+	re.compile("ц([ьіяюєї])",re.U|re.I): "тс\\1",
 }
 
-#ukrainian to russian character map
-#ukrainian soft "g" is not supported, becouse synth does not contain this phonem :(
+# Ukrainian to russian character map
+# Ukrainian soft "g" is not supported, because synth does not contain this phoneme :(
 pronunciation = {
-	u"и": u"ы",
-	u"і": u"и",
-	u"ї": u"ййи",
-	u"е": u"э",
-	u"є": u"е",
-	u"ґ": u"г",
+	"и": "ы",
+	"і": "и",
+	"ї": "ййи",
+	"е": "э",
+	"є": "е",
+	"ґ": "г",
 }
 
-pronunciationOrder = [u"и",u"і", u"ї", u"е", u"є", u"ґ"]
+pronunciationOrder = ["и", "і", "ї", "е", "є", "ґ"]
 
 letters = {
-	u"б": u"бэ",
-	u"в": u"вэ",
-	u"г": u"гэ",
-	u"д": u"дэ",
-	u"ж": u"же",
-	u"з": u"зэ",
-	u"й": u"йот",
-	u"к": u"ка",
-	u"л": u"эль",
-	u"м": u"эм",
-	u"н": u"эн",
-	u"п": u"пэ",
-	u"р": u"эр",
-	u"с": u"эс",
-	u"т": u"тэ",
-	u"ф": u"эф",
-	u"х": u"ха",
-	u"ц": u"це",
-	u"ч": u"че",
-	u"ш": u"ша",
-	u"щ": u"ща",
-	u"ъ": u"твэррдый знак",
-	u"ь": u"мъякый знак",
-	u"ґ": u"Твэрдэ+ гэ",
-	u"и": u"ы",
-	u"і": u"и",
-	u"ї": u"ййи",
-	u"е": u"э",
-	u"є": u"е",
+	"б": "бэ",
+	"в": "вэ",
+	"г": "гэ",
+	"д": "дэ",
+	"ж": "же",
+	"з": "зэ",
+	"й": "йот",
+	"к": "ка",
+	"л": "эль",
+	"м": "эм",
+	"н": "эн",
+	"п": "пэ",
+	"р": "эр",
+	"с": "эс",
+	"т": "тэ",
+	"ф": "эф",
+	"х": "ха",
+	"ц": "це",
+	"ч": "че",
+	"ш": "ша",
+	"щ": "ща",
+	"ъ": "твэррдый знак",
+	"ь": "мъякый знак",
+	"ґ": "Твэрдэ+ гэ",
+	"и": "ы",
+	"і": "и",
+	"ї": "ййи",
+	"е": "э",
+	"є": "е",
 }
 
-zeros=[u"нуль ",u"нулі ",u"нулів "]
+zeros = ["нуль ", "нулі ", "нулів "]
 re_zeros = re.compile(r"\b\a?\.?(0+)")
 re_words = re.compile(r"\b(\w+)\b",re.U)
 
 abbreviationsLength = 4
-re_abbreviations = re.compile(u"\\b([\\d,bcdfghjklmnpqrstvwxzбвгджзклмнпрстфхцчшщ]{2,})\\b",re.U)
-re_capAbbreviations = re.compile(u"([bcdfghjklmnpqrstvwxzбвгджзклмнпрстфхцчшщ]{3,})",re.U|re.I)
+re_abbreviations = re.compile("\\b([\\d,bcdfghjklmnpqrstvwxzбвгджзклмнпрстфхцчшщ]{2,})\\b",re.U)
+re_capAbbreviations = re.compile("([bcdfghjklmnpqrstvwxzбвгджзклмнпрстфхцчшщ]{3,})",re.U|re.I)
 re_decimalFractions = re.compile(r"\d+(\.)\d+")
 re_afterNumber = re.compile(r"(\d+)([^\.\:\-\/\!\?\d])")
 re_omittedCharacters = re.compile(r"[\(\)\*_\"]+")
 re_zeros = re.compile(r"\b\a?\.?(0+)")
-re_stress = re.compile(u"([аеёиоуыэюяіѣѵ])́", re.U|re.I)
+re_stress = re.compile("([аеёиоуыэюяіѣѵ])́", re.U|re.I)
 
 AllLetters = {}
 AllLetters.update(en.letters)
@@ -124,6 +124,6 @@ def process(text,language):
 	text = preprocessText(text)
 	text = re_words.sub(expandAbbreviation,text) #this also lowers the text
 	text = en.preprocessText(text)
-#	text = re_stress.sub(u"\\1\\+", text)
+#	text = re_stress.sub("\\1\\+", text)
 	text = re_afterNumber.sub(r"\1-\2", text)
 	return text
