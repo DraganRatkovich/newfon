@@ -81,14 +81,17 @@ pseudoEnglishPronunciation = {
 	'j': "дж",
 }
 
+
 re_englishLetters = re.compile(r"\b([a-zA-Z])\b")
 re_stress = re.compile("([аеёиоуыэюяіѣѵ])́", re.U|re.I)
+re_dash = re.compile(r"(\w)-(\w)")
 
 def subEnglishLetters(match):
 	letter = match.group(1).lower()
 	return letters[letter]
 
 def preprocessText(text):
+	text = re_dash.sub(r"\1 - \2", text)
 	englishPronunciation = pseudoEnglishPronunciation if options.get("pseudoEnglishPronunciation") == True else pronunciation
 	text = re_englishLetters.sub(subEnglishLetters, text)
 	for s in englishPronunciation:
