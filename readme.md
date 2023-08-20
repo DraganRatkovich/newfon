@@ -27,6 +27,13 @@ The developers, in turn, decided that history should not forget Sergey Shishmint
 
 ## Changelog
 
+### Version 2023.4
+
+* Removed a dictionary of accents containing many errors. Replaced by lexicon.test from rulex [commit67479e8][2] (Co-authored-by Sergey [Electrik-spb][3])
+* Fixed dash handling (Co-authored-by Sergey [Electrik-spb][3])
+* Reformat code (Co-authored-by Beqa Gozalishvili [beqabeqa473][4])
+* Drop python2 support (Co-authored-by Beqa Gozalishvili [beqabeqa473][4])
+
 ### Version 2023.3
 
 The GPL license is back in place of MIT. Now MIT is used for open source scripts and GPL is used for Newfon speech driver.
@@ -98,4 +105,10 @@ Due to a change in the way the audio subsystem works In new alpha versions of NV
 * Thanks to the programmer Kvark, the internal architecture of the add-on was rewritten to the third Python;
 * For fans of non-standard voices, the list of sampling frequencies has been expanded.
 
-[1]: https://github.com/DraganRatkovich/newfon/releases/download/2023.1/newfon-2023.1.nvda-addon
+[1]: https://www.nvaccess.org/addonStore/legacy?file=newfon
+
+[2]: https://github.com/poretsky/rulex/commit/67479e859cd5955072dc5bbae8065c4417af52cc
+
+[3]: https://github.com/Electrik-spb
+
+[4]: https://github.com/beqabeqa473
