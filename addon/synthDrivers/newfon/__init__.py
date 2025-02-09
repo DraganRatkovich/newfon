@@ -15,6 +15,7 @@ except ImportError:
     from driverHandler import DriverSetting, StringParameterInfo, BooleanDriverSetting, NumericDriverSetting
 import config
 import addonHandler
+import buildVersion
 from synthDriverHandler import synthIndexReached, synthDoneSpeaking
 
 from .languages import en, hr, ru, pl, sr, uk
@@ -243,7 +244,8 @@ class SynthDriver(SynthDriver):
         self.__newfon_audio_callback = newfon_audio_callback(self.__audio_callback)
         self.__index_callback = IndexCallback(self)
         self.__newfon_index_callback = newfon_index_callback(self.__index_callback)
-        self.__player = nvwave.WavePlayer(channels=1, samplesPerSec=(int(self._samplesPerSec) * int(self._interpolation)), bitsPerSample=16, outputDevice=config.conf["speech"]["outputDevice"])
+        self.outputDeviceSection = config.conf["speech"] if buildVersion.version_year < 2025 else config.conf["audio"]
+        self.__player = self.createPlayer()
         self.__audio_callback.set_player(self.__player)
         self.__doneSpeaking_callback = DoneSpeakingCallback(self, self.__player)
         self.__newfon_doneSpeaking_callback = newfon_doneSpeaking_callback(self.__doneSpeaking_callback)
@@ -272,6 +274,14 @@ class SynthDriver(SynthDriver):
             del self.__dict_lib
             del self.__dictdb_lib
             del self.__samplerate_lib
+
+    def createPlayer(self):
+        return nvwave.WavePlayer(
+            channels=1,
+            samplesPerSec=int(self._samplesPerSec) * int(self._interpolation),
+            bitsPerSample=16,
+            outputDevice=self.outputDeviceSection["outputDevice"]
+        )
 
     def speak(self, speechSequence):
         textList = []
@@ -318,7 +328,7 @@ class SynthDriver(SynthDriver):
 
     def _get_availableVoices(self):
         voices = [_("male 1"), _("female 1"), _("male 2"), _("female 2")]
-        return OrderedDict((str(index), VoiceInfo(str(index), name)) for index, name in enumerate(voices))
+        return {str(index): VoiceInfo(str(index), name) for index, name in enumerate(voices)}
 
     def _set_volume(self, value):
         self._volume = value
@@ -351,13 +361,13 @@ class SynthDriver(SynthDriver):
         return self._language
 
     def _get_availableLanguages(self):
-        return OrderedDict((
-            ("hr", LanguageInfo("hr")),
-            ("pl", LanguageInfo("pl")),
-            ("ru", LanguageInfo("ru")),
-            ("sr", LanguageInfo("sr")),
-            ("uk", LanguageInfo("uk")),
-        ))
+        return {
+            "hr": LanguageInfo("hr"),
+            "pl": LanguageInfo("pl"),
+            "ru": LanguageInfo("ru"),
+            "sr": LanguageInfo("sr"),
+            "uk": LanguageInfo("uk"),
+        }
 
     def _set_inflection(self, inflection):
         self._inflection = inflection
@@ -374,14 +384,14 @@ class SynthDriver(SynthDriver):
         return self._accel
 
     def _get_availableAccels(self):
-        return OrderedDict((str(x), StringParameterInfo(str(x), str(x))) for x in range(8))
+        return {str(x): StringParameterInfo(str(x), str(x)) for x in range(8)}
 
     def _set_interpolation(self, value):
         self._interpolation = value
         self.cancel()
         self.__newfon_queue.put(())
         self.__player.close()
-        self.__player = nvwave.WavePlayer(channels=1, samplesPerSec=(int(self._samplesPerSec) * int(self._interpolation)), bitsPerSample=16, outputDevice=config.conf["speech"]["outputDevice"])
+        self.__player = self.createPlayer()
         self.__audio_callback.set_player(self.__player)
         self.__newfon_lib.set_interpolation(int(self._interpolation))
 
@@ -391,18 +401,19 @@ class SynthDriver(SynthDriver):
         return "1"
 
     def _get_availableInterpolations(self):
-        interpolations = OrderedDict()
-        interpolations["1"] = StringParameterInfo("1", _("Off"))
-        interpolations["2"] = StringParameterInfo("2", _("2 X"))
-        interpolations["4"] = StringParameterInfo("4", _("4 X"))
-        return interpolations
+        options = [
+            ("1", _("Off")),
+            ("2", _("2 X")),
+            ("4", _("4 X"))
+        ]
+        return {key: StringParameterInfo(key, label) for key, label in options}
 
     def _set_samplesPerSec(self, value):
         self._samplesPerSec = value
         self.cancel()
         self.__newfon_queue.put(())
         self.__player.close()
-        self.__player = nvwave.WavePlayer(channels=1, samplesPerSec=int(self._samplesPerSec)*int(self._interpolation), bitsPerSample=16, outputDevice=config.conf["speech"]["outputDevice"])
+        self.__player = self.createPlayer()
         self.__audio_callback.set_player(self.__player)
 
     def _get_samplesPerSec(self):
@@ -411,10 +422,10 @@ class SynthDriver(SynthDriver):
         return "10000"
 
     def _get_availableSamplespersecs(self):
-        sampleRates = OrderedDict()
-        for s in ("8000", "9025", "10000", "11025", "12000", "13025", "14000", "15025", "16000"):
-            sampleRates[s] = StringParameterInfo(s, s)
-        return sampleRates
+        sample_rates = [
+            "8000", "9025", "10000", "11025", "12000", "13025", "14000", "15025", "16000"
+        ]
+        return {sampleRate: StringParameterInfo(sampleRate, sampleRate) for sampleRate in sample_rates}
 
     def _set_pauseBetweenPhrases(self, value):
         self._pauseBetweenPhrases = value
@@ -425,20 +436,14 @@ class SynthDriver(SynthDriver):
 
     def _set_useSynthDict(self, value):
         self._useSynthDict = value
-        if self.language == "ru":
-            self.__newfon_lib.set_dictionary(value)
-        else:
-            self.__newfon_lib.set_dictionary(False)
+        self.__newfon_lib.set_dictionary(value if self.language == "ru" else False)
 
     def _get_useSynthDict(self):
         return self._useSynthDict
 
     def _set_decimalFractions(self, value):
         self._decimalFractions = value
-        if self._decimalFractions == True:
-            self.__newfon_lib.enable_decimal_fractions(True)
-        else:
-            self.__newfon_lib.enable_decimal_fractions(False)
+        self.__newfon_lib.enable_decimal_fractions(bool(value))
 
     def _get_decimalFractions(self):
         return self._decimalFractions
