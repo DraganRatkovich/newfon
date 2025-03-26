@@ -2,7 +2,7 @@
 
 * Authors: Sergey Shishmintsev, Alexy Sadovoi, Sergey A.K.A. Electrik, Kvark and other developers
 * Download [stable version][1]
-* NVDA Compatibility: 2019.2 to 2023.1
+* NVDA Compatibility: 2019.2 to 2025.1
 
 ### About
 
@@ -26,6 +26,11 @@ In 2017, the current developers of the Newfon speech synthesizer had the opportu
 The developers, in turn, decided that history should not forget Sergey Shishmintsev, as he was a unique programmer with an enormous amount of perseverance, hard work and knowledge.
 
 ## Changelog
+
+### Version 2025.1
+
+* Added compatibility for NVDA 2025 (Co-authored-by Beqa Gozalishvili [beqabeqa473][4])
+* Some unnecesary ordered dict removals and code simplifications (Co-authored-by Beqa Gozalishvili [beqabeqa473][4])
 
 ### Version 2023.4
 
