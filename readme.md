@@ -27,6 +27,10 @@ The developers, in turn, decided that history should not forget Sergey Shishmint
 
 ## Changelog
 
+###Version 2025.2
+
+Updated compatibility with NVDA 2025.1, which is currently in beta testing. The add-on will be updated when NVDA 2025.1 becomes stable.
+
 ### Version 2025.1
 
 * Added compatibility for NVDA 2025 (Co-authored-by Beqa Gozalishvili [beqabeqa473][4])
